@@ -16,10 +16,13 @@ public class PostsViewController {
 
     @Autowired
     PostService postsService;
+    public PostsViewController() {
+    }
+
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("appName", "Сентябрь горит");
-        model.addAttribute("posts", postsService.listAllPost());
+        model.addAttribute("posts", postsService.listAllPosts());
         return "list";
     }
     @ResponseBody
